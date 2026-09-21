@@ -1,65 +1,12 @@
-# Labyrinth-Spiel in C
+## Schritt-für-Schritt-Anleitung für Anfänger
 
-Praxisarbeit im Modul **Programmiertechnik A & B**.
+Für das Starten des Spiels sind keine Programmierkenntnisse notwendig. Die folgenden Schritte zeigen, wie das Programm in einem GitHub Codespace gestartet werden kann.
 
-## Beschreibung
+### 1. Repository öffnen
 
-Dieses Projekt ist ein textbasiertes Labyrinth-Spiel, das in der Programmiersprache **C** entwickelt wurde.
+Das GitHub-Repository **labyrinth-spiel-c** öffnen.
 
-Das Spiel besteht aus einem **10 × 10 grossen Spielfeld**. Zu Beginn werden der Spieler, ein Schatz und zehn Hindernisse zufällig auf freien Feldern platziert.
-
-Ziel des Spiels ist es, den Schatz zu erreichen, ohne auf ein Hindernis zu laufen oder das Spielfeld zu verlassen.
-
-## Spielfeld
-
-Für die Darstellung werden folgende Zeichen verwendet:
-
-- `P` = Spieler
-- `T` = Schatz
-- `O` = Hindernis
-- `.` = freies Feld
-
-## Steuerung
-
-Der Spieler wird über die Tastatur gesteuert:
-
-- `W` = Hoch
-- `A` = Links
-- `S` = Runter
-- `D` = Rechts
-- `Q` = Spiel beenden
-
-Auch Kleinbuchstaben werden erkannt.
-
-## Funktionen
-
-Das Programm beinhaltet unter anderem:
-
-- zufällige Platzierung von Spieler, Schatz und Hindernissen
-- Verhinderung von Überschneidungen bei der Platzierung
-- Prüfung der Spielfeldgrenzen
-- Erkennung von Hindernissen
-- Überprüfung der Siegbedingung
-- Verarbeitung ungültiger Eingaben
-- manuelles Beenden des Spiels
-
-## Kompilieren
-
-Das Programm kann mit GCC kompiliert werden:
-
-```bash
-gcc main.c -o labyrinth
-```
-
-## Starten
-
-Nach dem Kompilieren wird das Spiel mit folgendem Befehl gestartet:
-
-```bash
-./labyrinth
-```
-
-## Projektstruktur
+Im Repository befinden sich mindestens folgende Dateien:
 
 ```text
 labyrinth-spiel-c/
@@ -67,30 +14,117 @@ labyrinth-spiel-c/
 └── README.md
 ```
 
-`main.c` enthält den vollständigen Quellcode des Labyrinth-Spiels.
+Die Datei `main.c` enthält den eigentlichen Programmcode.
 
-## Technische Umsetzung
+### 2. Codespace starten
 
-Das Spielfeld wird als zweidimensionales `char`-Array umgesetzt. Die Positionen des Spielers und des Schatzes werden mit der selbst definierten Struktur `Position` gespeichert.
+Im GitHub-Repository oben auf **Code** klicken.
 
-Der Programmcode ist in mehrere Funktionen aufgeteilt, darunter:
+Anschliessend:
 
-- `initializeLabyrinth()` – initialisiert das Spielfeld
-- `printLabyrinth()` – gibt das Spielfeld aus
-- `getRandomFreePosition()` – ermittelt eine zufällige freie Position
-- `placeGameObjects()` – platziert Spieler, Schatz und Hindernisse
-- `isValidMove()` – überprüft eine Bewegung
-- `movePlayer()` – bewegt den Spieler
-- `hasPlayerWon()` – überprüft die Siegbedingung
+1. **Codespaces** auswählen.
+2. **Create codespace on main** anklicken.
+3. Warten, bis sich die Entwicklungsumgebung geöffnet hat.
 
-## Hinweis
+GitHub öffnet anschliessend eine Entwicklungsumgebung ähnlich wie Visual Studio Code.
 
-Die Positionen der Spielobjekte werden bei jedem Programmstart zufällig bestimmt. Das Programm stellt sicher, dass sich Spieler, Schatz und Hindernisse bei der Platzierung nicht überschneiden.
+### 3. Terminal öffnen
 
-Eine Überprüfung, ob der Schatz bei jeder zufälligen Anordnung tatsächlich erreichbar ist, ist in der aktuellen Version nicht implementiert.
+Im Codespace oben im Menü **Terminal** auswählen und anschliessend auf **New Terminal** klicken.
 
-## Autor
+Am unteren Rand des Fensters erscheint nun ein Terminal.
 
-**Lukas Zumwald**
+### 4. Programm kompilieren
 
-Praxisarbeit – Programmiertechnik A & B
+Folgenden Befehl in das Terminal eingeben:
+
+```bash
+gcc main.c -o labyrinth
+```
+
+Danach **Enter** drücken.
+
+Mit diesem Befehl wird aus der Datei `main.c` das ausführbare Programm `labyrinth` erstellt.
+
+Wenn keine Fehlermeldung erscheint, wurde das Programm erfolgreich kompiliert.
+
+### 5. Spiel starten
+
+Anschliessend folgenden Befehl eingeben:
+
+```bash
+./labyrinth
+```
+
+Danach wieder **Enter** drücken.
+
+Das Labyrinth-Spiel wird nun direkt im Terminal gestartet.
+
+### 6. Spieler bewegen
+
+Nach dem Start wird das Spielfeld angezeigt.
+
+Die Steuerung erfolgt mit:
+
+- `W` = Hoch
+- `A` = Links
+- `S` = Runter
+- `D` = Rechts
+- `Q` = Spiel beenden
+
+Nach jeder Eingabe muss **Enter** gedrückt werden.
+
+Beispiel:
+
+```text
+Eingabe: D
+```
+
+Der Spieler versucht dadurch, sich ein Feld nach rechts zu bewegen.
+
+### 7. Ziel des Spiels
+
+Auf dem Spielfeld werden folgende Zeichen verwendet:
+
+- `P` = Spieler
+- `T` = Schatz
+- `O` = Hindernis
+- `.` = freies Feld
+
+Das Ziel besteht darin, den Spieler `P` zum Schatz `T` zu bewegen.
+
+Hindernisse `O` können nicht betreten werden. Auch Bewegungen ausserhalb des Spielfelds werden verhindert.
+
+Sobald der Spieler den Schatz erreicht, wird eine Siegesmeldung ausgegeben und das Spiel beendet.
+
+### 8. Spiel erneut starten
+
+Nach dem Spiel kann es mit folgendem Befehl erneut gestartet werden:
+
+```bash
+./labyrinth
+```
+
+Bei einem neuen Programmstart werden Spieler, Schatz und Hindernisse erneut zufällig platziert.
+
+### Problem: `./labyrinth: No such file or directory`
+
+Falls diese Meldung erscheint:
+
+```text
+bash: ./labyrinth: No such file or directory
+```
+
+wurde das Programm noch nicht kompiliert.
+
+Zuerst ausführen:
+
+```bash
+gcc main.c -o labyrinth
+```
+
+und danach:
+
+```bash
+./labyrinth
+```
